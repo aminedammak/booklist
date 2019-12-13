@@ -1,16 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { BookContext } from '../contexts/BookContext';
+import uuid from 'uuid';
 
 export default function BookForm() {
 
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
 
-    const { addBook } = useContext(BookContext);
+    const { dispatch } = useContext(BookContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addBook({ title, author });
+        dispatch({ type: "ADD_BOOK", book: { title, author, id: uuid() } });
         setTitle("");
         setAuthor("");
     }

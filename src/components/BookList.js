@@ -5,7 +5,7 @@ import uuid from "uuid";
 
 export default function BookList() {
 
-    const { books, removeBook } = useContext(BookContext);
+    const { books } = useContext(BookContext);
 
     return books.length > 0 ? (
         <div>
